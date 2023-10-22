@@ -1,7 +1,7 @@
 export class loginModel {
   toHTML () {
-    document.body.insertAdjacentHTML('beforeend', 
-    `
+		const div = document.querySelector('.login-hidden-box');
+    div.innerHTML = `
     <div class="wrapper">
 
 		<span class="icon-close">
@@ -66,7 +66,12 @@ export class loginModel {
 			</form>
 		</div>
 
-	</div> `
-    )
-  }
+	</div> 
+	`
+  };
+
+	deleteFromDOM() {
+		const div = document.querySelector('.login-hidden-box');
+		div.innerHTML = ''
+	};
 }

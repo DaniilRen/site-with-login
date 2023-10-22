@@ -575,20 +575,69 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bNKaB":[function(require,module,exports) {
-var _loginModel = require("./utils/loginModel");
 var _loginUtility = require("./utils/loginUtility");
-const model = new (0, _loginModel.loginModel)();
-model.toHTML();
-(0, _loginUtility.addInputListeners)();
 (0, _loginUtility.addWrapperListeners)();
 
-},{"./utils/loginModel":"4056b","./utils/loginUtility":"9qYMF"}],"4056b":[function(require,module,exports) {
+},{"./utils/loginUtility":"9qYMF"}],"9qYMF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "addWrapperListeners", ()=>addWrapperListeners);
+var _loginModel = require("./loginModel");
+function addWrapperListeners() {
+    model = new (0, _loginModel.loginModel)();
+    const btnPopup = document.querySelector(".btnLogin-popup");
+    btnPopup.addEventListener("click", ()=>{
+        model.toHTML();
+        wrapper = document.querySelector(".wrapper");
+        addInputListeners(wrapper);
+        setTimeout(()=>wrapper.classList.add("active-popup"), 10);
+    });
+}
+function addInputListeners(wrapper1) {
+    const registerLink = document.querySelector(".register-link");
+    registerLink.addEventListener("click", ()=>{
+        wrapper1.classList.add("active");
+    });
+    const loginLink = document.querySelector(".login-link");
+    loginLink.addEventListener("click", ()=>{
+        wrapper1.classList.remove("active");
+    });
+    const iconClose = document.querySelector(".icon-close");
+    iconClose.addEventListener("click", ()=>{
+        wrapper1.classList.remove("active-popup");
+        setTimeout(model.deleteFromDOM, 1000);
+    });
+    const loginBox = document.querySelector(".login");
+    const loginSubmitBtn = document.querySelector("#login-submit");
+    loginSubmitBtn.addEventListener("click", ()=>{
+        loginInfo = {
+            email: loginBox.querySelector(".email").value,
+            password: loginBox.querySelector(".password").value,
+            remember: loginBox.querySelector(".remember-me").checked
+        };
+        console.log(loginInfo);
+    });
+    const registerBox = document.querySelector(".register");
+    const registerSubmitBtn = document.querySelector("#register-submit");
+    registerSubmitBtn.addEventListener("click", ()=>{
+        registerInfo = {
+            email: registerBox.querySelector(".email").value,
+            password: registerBox.querySelector(".password").value,
+            username: registerBox.querySelector(".username").value,
+            agreement: registerBox.querySelector(".agreement").checked
+        };
+        console.log(registerInfo);
+    });
+}
+
+},{"./loginModel":"4056b","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4056b":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loginModel", ()=>loginModel);
 class loginModel {
     toHTML() {
-        document.body.insertAdjacentHTML("beforeend", `
+        const div = document.querySelector(".login-hidden-box");
+        div.innerHTML = `
     <div class="wrapper">
 
 		<span class="icon-close">
@@ -653,7 +702,12 @@ class loginModel {
 			</form>
 		</div>
 
-	</div> `);
+	</div> 
+	`;
+    }
+    deleteFromDOM() {
+        const div = document.querySelector(".login-hidden-box");
+        div.innerHTML = "";
     }
 }
 
@@ -687,54 +741,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"9qYMF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addInputListeners", ()=>addInputListeners);
-parcelHelpers.export(exports, "addWrapperListeners", ()=>addWrapperListeners);
-function addInputListeners() {
-    const loginBox = document.querySelector(".login");
-    const loginSubmitBtn = document.getElementById("login-submit");
-    loginSubmitBtn.addEventListener("click", ()=>{
-        loginInfo = {
-            email: loginBox.querySelector(".email").value,
-            password: loginBox.querySelector(".password").value,
-            remember: loginBox.querySelector(".remember-me").checked
-        };
-        console.log(loginInfo);
-    });
-    const registerBox = document.querySelector(".register");
-    const registerSubmitBtn = document.getElementById("register-submit");
-    registerSubmitBtn.addEventListener("click", ()=>{
-        registerInfo = {
-            email: registerBox.querySelector(".email").value,
-            password: registerBox.querySelector(".password").value,
-            username: registerBox.querySelector(".username").value,
-            agreement: registerBox.querySelector(".agreement").checked
-        };
-        console.log(registerInfo);
-    });
-}
-function addWrapperListeners() {
-    const wrapper = document.querySelector(".wrapper");
-    const registerLink = document.querySelector(".register-link");
-    registerLink.addEventListener("click", ()=>{
-        wrapper.classList.add("active");
-    });
-    const loginLink = document.querySelector(".login-link");
-    loginLink.addEventListener("click", ()=>{
-        wrapper.classList.remove("active");
-    });
-    const btnPopup = document.querySelector(".btnLogin-popup");
-    btnPopup.addEventListener("click", ()=>{
-        wrapper.classList.add("active-popup");
-    });
-    const iconClose = document.querySelector(".icon-close");
-    iconClose.addEventListener("click", ()=>{
-        wrapper.classList.remove("active-popup");
-    });
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iWvxK","bNKaB"], "bNKaB", "parcelRequire06a4")
+},{}]},["iWvxK","bNKaB"], "bNKaB", "parcelRequire06a4")
 
 //# sourceMappingURL=index.0641b553.js.map
