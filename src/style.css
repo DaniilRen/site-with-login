@@ -150,7 +150,10 @@ header {
 	border-bottom-left-radius: 20px;
 	cursor: pointer;
 	z-index: 1;
+}
 
+.icon-close-cross {
+	transform: rotate(45deg);
 }
 
 .form-box h2 {

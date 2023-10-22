@@ -150,6 +150,10 @@ header {
   right: 0;
 }
 
+.icon-close-cross {
+  transform: rotate(45deg);
+}
+
 .form-box h2 {
   color: #162938;
   text-align: center;
