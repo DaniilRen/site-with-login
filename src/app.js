@@ -1,4 +1,3 @@
-import { addWrapperListeners } from "./utils/loginUtility";
+import { addLoginForm } from "./utils/loginUtility";
 
-
-addWrapperListeners()
+addLoginForm()

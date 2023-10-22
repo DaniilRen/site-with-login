@@ -1,4 +1,4 @@
-6361
+6362
 58D:\web projects\site-with-login\node_modules\utility-types133424322433275586 1
 125D:\web projects\site-with-login\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\node\SelectorList.js133424322518151550 0
 76D:\web projects\site-with-login\node_modules\htmlnano\lib\presets\ampSafe.js133424322387517890 0
@@ -88,7 +88,7 @@
 94D:\web projects\site-with-login\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\Makefile133424322392509924 0
 95D:\web projects\site-with-login\node_modules\csso\node_modules\css-tree\cjs\convertor\index.cjs133424322494189365 0
 78D:\web projects\site-with-login\node_modules\svgo\plugins\removeUselessDefs.js133424322491498302 0
-36D:\web projects\site-with-login\dist133424471108206554 1
+36D:\web projects\site-with-login\dist133424727256211774 1
 120D:\web projects\site-with-login\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeScriptElement.js133424322494964967 0
 100D:\web projects\site-with-login\node_modules\@swc\helpers\cjs\_class_static_private_field_update.cjs133424322451857520 0
 45D:\web projects\site-with-login\firebase.json133424313739633068 0
@@ -121,7 +121,7 @@
 79D:\web projects\site-with-login\node_modules\svgo\plugins\convertShapeToPath.js133424322449285411 0
 78D:\web projects\site-with-login\node_modules\css-tree\lib\lexer\match-graph.js133424322541564657 0
 63D:\web projects\site-with-login\node_modules\.package-lock.json133424323127145060 0
-42D:\web projects\site-with-login\src\app.js133424416850943151 0
+42D:\web projects\site-with-login\src\app.js133424725557163356 0
 68D:\web projects\site-with-login\node_modules\color-convert\README.md133424322415045098 0
 73D:\web projects\site-with-login\node_modules\@parcel\events\lib\errors.js133424322390702787 0
 46D:\web projects\site-with-login\src\index.html133424465085012293 0
@@ -156,7 +156,7 @@
 77D:\web projects\site-with-login\node_modules\regenerator-runtime\package.json133424322389314931 0
 86D:\web projects\site-with-login\node_modules\csso\lib\restructure\8-restructRuleset.js133424322491198790 0
 90D:\web projects\site-with-login\node_modules\@parcel\core\lib\public\MutableBundleGraph.js133424322512750573 0
-57D:\web projects\site-with-login\src\utils\loginUtility.js133424457061280006 0
+57D:\web projects\site-with-login\src\utils\loginUtility.js133424726537570505 0
 79D:\web projects\site-with-login\node_modules\@swc\helpers\_\_is_native_function133424322550110186 1
 110D:\web projects\site-with-login\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib\types.d.ts133424322479871316 0
 107D:\web projects\site-with-login\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\010-introduction.md133424322493055887 0
@@ -915,7 +915,7 @@
 75D:\web projects\site-with-login\node_modules\@swc\helpers\src\_defaults.mjs133424322564200398 0
 108D:\web projects\site-with-login\node_modules\@parcel\transformer-html\node_modules\semver\functions\major.js133424322460157192 0
 77D:\web projects\site-with-login\node_modules\svgo\plugins\convertTransform.js133424322453345179 0
-61D:\web projects\site-with-login\dist\background3.7d051846.jpg133424470965246577 0
+61D:\web projects\site-with-login\dist\background3.7d051846.jpg133424726554510620 0
 62D:\web projects\site-with-login\node_modules\lightningcss\node133424322446192721 1
 102D:\web projects\site-with-login\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\CHANGELOG.md133424322525718718 0
 96D:\web projects\site-with-login\node_modules\posthtml\node_modules\posthtml-parser\dist\index.js133424322408462988 0
@@ -3196,7 +3196,7 @@
 72D:\web projects\site-with-login\node_modules\@parcel\utils\src\config.js133424322423339906 0
 75D:\web projects\site-with-login\node_modules\csso\cjs\replace\Dimension.cjs133424322454019460 0
 71D:\web projects\site-with-login\node_modules\csso\cjs\replace\index.cjs133424322462149396 0
-47D:\web projects\site-with-login\dist\index.html133424471108156672 0
+47D:\web projects\site-with-login\dist\index.html133424727256162320 0
 66D:\web projects\site-with-login\node_modules\@swc\types\index.d.ts133424322345137317 0
 85D:\web projects\site-with-login\node_modules\csso\cjs\replace\property\background.cjs133424322437703855 0
 110D:\web projects\site-with-login\node_modules\@parcel\package-manager\test\fixtures\packages\peers\package.json133424322483865055 0
@@ -3382,7 +3382,7 @@
 69D:\web projects\site-with-login\node_modules\css-tree\cjs\syntax\node133424322523631517 1
 64D:\web projects\site-with-login\node_modules\braces\lib\utils.js133424322431334205 0
 70D:\web projects\site-with-login\node_modules\css-tree\cjs\syntax\scope133424322522153847 1
-59D:\web projects\site-with-login\dist\index.2cdaf7bc.css.map133424470984317730 0
+59D:\web projects\site-with-login\dist\index.2cdaf7bc.css.map133424726558806734 0
 80D:\web projects\site-with-login\node_modules\css-tree\cjs\syntax\scope\index.cjs133424322502186575 0
 70D:\web projects\site-with-login\node_modules\@swc\helpers\_\_construct133424322544470145 1
 91D:\web projects\site-with-login\node_modules\css-tree\cjs\syntax\node\AttributeSelector.cjs133424322426124812 0
@@ -6158,7 +6158,7 @@
 113D:\web projects\site-with-login\node_modules\@parcel\core\test\fixtures\targets-default-distdir-none\package.json133424322541654535 0
 123D:\web projects\site-with-login\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-bad-engines133424322541325088 1
 122D:\web projects\site-with-login\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-no-engines133424322541464848 1
-58D:\web projects\site-with-login\dist\index.0641b553.js.map133424470965735821 0
+58D:\web projects\site-with-login\dist\index.0641b553.js.map133424726558430228 0
 136D:\web projects\site-with-login\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-bad-engines\package.json133424322541364977 0
 59D:\web projects\site-with-login\backgrounds\background2.jpg133424313739493290 0
 87D:\web projects\site-with-login\node_modules\@parcel\core\test\fixtures\parcel\index.js133424322506749436 0
@@ -6352,8 +6352,9 @@
 58D:\web projects\site-with-login\node_modules\.bin\svgo.cmd133424322649506433 0
 58D:\web projects\site-with-login\node_modules\.bin\svgo.ps1133424322649506433 0
 76D:\web projects\site-with-login\node_modules\.bin\update-browserslist-db.cmd133424322649516444 0
-54D:\web projects\site-with-login\dist\index.0641b553.js133424470965186621 0
-55D:\web projects\site-with-login\dist\index.2cdaf7bc.css133424470966065245 0
+54D:\web projects\site-with-login\dist\index.0641b553.js133424726554421893 0
+54D:\web projects\site-with-login\dist\index.2af103b3.js133424727256172208 0
+55D:\web projects\site-with-login\dist\index.2cdaf7bc.css133424726558619757 0
 54D:\web projects\site-with-login\dist\index.420a73a1.js133424471092205925 0
 58D:\web projects\site-with-login\dist\index.44983732.js.map133424359461309213 0
 55D:\web projects\site-with-login\dist\index.9f7f8803.css133424471108166639 0
