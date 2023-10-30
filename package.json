@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "parcel": "^2.10.0"
+    "parcel": "^2.10.1"
   },
   "name": "sitewithlogin",
   "version": "1.0.0",

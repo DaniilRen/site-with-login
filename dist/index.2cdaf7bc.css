@@ -81,74 +81,22 @@ header {
   background: #fff;
 }
 
-.content {
-  width: 100%;
-  padding: 0 100px;
-  position: absolute;
-  top: 43vh;
-}
-
-#main-title {
+#home-main-title {
   color: #fff;
   text-shadow: 1px 2px 2px #162938;
   justify-content: center;
-  margin-bottom: 100px;
   font-size: 40px;
   font-weight: 400;
   display: flex;
 }
 
-.info-wrapper {
+.login-hidden-box {
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 10vw;
-  display: flex;
-  position: relative;
-}
-
-.info-block {
-  width: 300px;
-  height: 400px;
-  background-color: #ffffff80;
-  border: 1px solid #162938;
-  border-radius: 8px;
   justify-content: center;
-  align-items: center;
   display: flex;
-}
-
-.info-block a {
-  color: #162938;
-  font-size: 40px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: font-size .3s;
-  position: relative;
-}
-
-.info-block a:hover {
-  text-shadow: 1px 2px 2px #a9aaaa;
-  font-size: 41px;
-}
-
-.info-block a:after {
-  content: "";
-  width: 100%;
-  height: 3px;
-  transform-origin: 100%;
-  background: #162938;
-  border-radius: 5px;
-  transition: transform .5s;
-  position: absolute;
-  bottom: -6px;
+  position: fixed;
+  top: 20vh;
   left: 0;
-  transform: scaleX(0);
-}
-
-.info-block a:hover:after {
-  transform-origin: 0;
-  transform: scaleX(1);
 }
 
 .wrapper {
@@ -203,7 +151,7 @@ header {
   transform: translateX(0);
 }
 
-.wrapper .icon-close {
+.icon-close {
   width: 45px;
   height: 45px;
   color: #fff;
@@ -221,6 +169,8 @@ header {
 }
 
 .icon-close-cross {
+  color: #fff;
+  text-decoration: none;
   transform: rotate(45deg);
 }
 
@@ -326,6 +276,34 @@ header {
 
 .login-register p a:hover {
   text-decoration: underline;
+}
+
+.about-content {
+  color: #fff;
+  width: 65vw;
+  height: 75vh;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 2px solid #ffffff80;
+  border-radius: 20px;
+  padding: 4vh;
+  transition: transform .3s, height .2s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px #00000080;
+}
+
+.about-content * {
+  margin-bottom: 5vh;
+}
+
+.about-content a {
+  margin-top: 4.5vh;
+}
+
+.code {
+  text-shadow: 1px 2px 2px #162938;
+  font-size: 1.1em;
 }
 
 /*# sourceMappingURL=index.2cdaf7bc.css.map */

@@ -584,42 +584,45 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addLoginForm", ()=>addLoginForm);
 var _loginModel = require("./loginModel");
 function addLoginForm() {
-    model = new (0, _loginModel.loginModel)();
+    const model = new (0, _loginModel.loginModel)();
     const btnPopup = document.querySelector(".btnLogin-popup");
     btnPopup.addEventListener("click", ()=>{
         model.toHTML();
-        wrapper = document.querySelector(".wrapper");
-        addListeners(wrapper);
+        const wrapper = document.querySelector(".wrapper");
+        addListeners(wrapper, model);
         setTimeout(()=>wrapper.classList.add("active-popup"), 10);
     });
 }
-function addListeners(wrapper1) {
-    addRegisterLink(wrapper1);
-    addLoginLink(wrapper1);
-    addIconClose(wrapper1);
-    addLoginSubmit();
-    addRegisterSubmit();
+function addListeners(wrapper, model) {
+    addRegisterLink(wrapper);
+    addLoginLink(wrapper);
+    addIconClose(wrapper, model);
+    addLoginSubmit(wrapper, model);
+    addRegisterSubmit(wrapper, model);
 }
-function addRegisterLink(wrapper1) {
-    const registerLink = document.querySelector(".register-link");
+function addRegisterLink(wrapper) {
+    const registerLink = wrapper.querySelector(".register-link");
     registerLink.addEventListener("click", ()=>{
-        wrapper1.classList.add("active");
+        wrapper.classList.add("active");
     });
 }
-function addLoginLink(wrapper1) {
-    const loginLink = document.querySelector(".login-link");
+function addLoginLink(wrapper) {
+    const loginLink = wrapper.querySelector(".login-link");
     loginLink.addEventListener("click", ()=>{
-        wrapper1.classList.remove("active");
+        wrapper.classList.remove("active");
     });
 }
-function addIconClose(wrapper1) {
-    const iconClose = document.querySelector(".icon-close");
+function close_model(wrapper, model) {
+    wrapper.classList.remove("active-popup");
+    setTimeout(model.deleteFromDOM, 1000);
+}
+function addIconClose(wrapper, model) {
+    const iconClose = wrapper.querySelector(".icon-close");
     iconClose.addEventListener("click", ()=>{
-        wrapper1.classList.remove("active-popup");
-        setTimeout(model.deleteFromDOM, 1000);
+        close_model(wrapper, model);
     });
 }
-function addLoginSubmit() {
+function addLoginSubmit(wrapper, model) {
     const loginBox = document.querySelector(".login");
     const loginSubmitBtn = document.querySelector("#login-submit");
     loginSubmitBtn.addEventListener("click", ()=>{
@@ -630,9 +633,10 @@ function addLoginSubmit() {
         });
         localStorage.setItem("loginInfo", loginInfo);
         console.log(loginInfo);
+        close_model(wrapper, model);
     });
 }
-function addRegisterSubmit() {
+function addRegisterSubmit(wrapper, model) {
     const registerBox = document.querySelector(".register");
     const registerSubmitBtn = document.querySelector("#register-submit");
     registerSubmitBtn.addEventListener("click", ()=>{
@@ -644,6 +648,7 @@ function addRegisterSubmit() {
         });
         localStorage.setItem("registerInfo", registerInfo);
         console.log(registerInfo);
+        close_model(wrapper, model);
     });
 }
 
@@ -657,69 +662,69 @@ class loginModel {
         div.innerHTML = `
     <div class="wrapper">
 
-		<span class="icon-close">
-			<span class="icon-close-cross">+</span>
-		</span>
+			<span class="icon-close">
+				<span class="icon-close-cross">+</span>
+			</span>
 
-		<div class="form-box login">
-			<h2>Login</h2>
-			<form action="#">
-				<div class="input-box">
-					<span class="icon"><ion-icon name="mail"></ion-icon></span>
-					<input class="email" type="email" required>
-					<label>Email</label>
-				</div>
-				<div class="input-box">
-					<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-					<input class="password" type="password" autocomplete="on" required>
-					<label>Password</label>
-				</div>
-				<div class="remember-forgot">
-					<label><input class="remember-me" type="checkbox">Remember me</label>
-					<a href="#">Forgot Password?</a>
-				</div>
-				<button type="submit" id="login-submit" class="btn">Login</button>
-				<div class="login-register">
-					<p>Don't have an account?<a href="#" class="register-link">Register</a></p>
-				</div>
-			</form>
-		</div>
+			<div class="form-box login">
+				<h2>Login</h2>
+				<form action="#">
+					<div class="input-box">
+						<span class="icon"><ion-icon name="mail"></ion-icon></span>
+						<input class="email" type="email" required>
+						<label>Email</label>
+					</div>
+					<div class="input-box">
+						<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+						<input class="password" type="password" autocomplete="on" required>
+						<label>Password</label>
+					</div>
+					<div class="remember-forgot">
+						<label><input class="remember-me" type="checkbox">Remember me</label>
+						<a href="#">Forgot Password?</a>
+					</div>
+					<button type="submit" id="login-submit" class="btn">Login</button>
+					<div class="login-register">
+						<p>Don't have an account?<a href="#" class="register-link">Register</a></p>
+					</div>
+				</form>
+			</div>
 
-		<div class="form-box register">
-			<h2>Registration</h2>
-			<form action="#">
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="person"></ion-icon>
-					</span>
-					<input class="username" type="text" required>
-					<label>Username</label>
-				</div>
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="mail"></ion-icon>
-					</span>
-					<input class="email" type="email" required>
-					<label>Email</label>
-				</div>
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="lock-closed"></ion-icon>
-					</span>
-					<input class="password type="password" autocomplete="on" required>
-					<label>Password</label>
-				</div>
-				<div class="remember-forgot">
-					<label><input class="agreement" type="checkbox">I agree to the terms & conditions</label>
-				</div>
-				<button type="submit" id="register-submit" class="btn">Register</button>
-				<div class="login-register">
-					<p>Already have an account?<a href="#" class="login-link">Login</a></p>
-				</div>
-			</form>
-		</div>
+			<div class="form-box register">
+				<h2>Registration</h2>
+				<form action="#">
+					<div class="input-box">
+						<span class="icon">
+							<ion-icon name="person"></ion-icon>
+						</span>
+						<input class="username" type="text" required>
+						<label>Username</label>
+					</div>
+					<div class="input-box">
+						<span class="icon">
+							<ion-icon name="mail"></ion-icon>
+						</span>
+						<input class="email" type="email" required>
+						<label>Email</label>
+					</div>
+					<div class="input-box">
+						<span class="icon">
+							<ion-icon name="lock-closed"></ion-icon>
+						</span>
+						<input class="password type="password" autocomplete="on" required>
+						<label>Password</label>
+					</div>
+					<div class="remember-forgot">
+						<label><input class="agreement" type="checkbox">I agree to the terms & conditions</label>
+					</div>
+					<button type="submit" id="register-submit" class="btn">Register</button>
+					<div class="login-register">
+						<p>Already have an account?<a href="#" class="login-link">Login</a></p>
+					</div>
+				</form>
+			</div>
 
-	</div> 
+		</div> 
 	`;
     }
     deleteFromDOM() {

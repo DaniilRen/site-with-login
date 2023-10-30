@@ -2,52 +2,57 @@ import { loginModel } from "./loginModel";
 
 
 export function addLoginForm() {
-  model = new loginModel();
+  const model = new loginModel();
 
   const btnPopup = document.querySelector(".btnLogin-popup");	
   btnPopup.addEventListener('click', () => {
     model.toHTML()
-    wrapper = document.querySelector(".wrapper");
-    addListeners(wrapper);
+    const wrapper = document.querySelector(".wrapper");
+    addListeners(wrapper, model);
     setTimeout(() => wrapper.classList.add('active-popup'), 10);
   })
-}
+};
 
 
-function addListeners(wrapper) {
+function addListeners(wrapper, model) {
   addRegisterLink(wrapper);
   addLoginLink(wrapper);
-  addIconClose(wrapper);
-  addLoginSubmit();
-  addRegisterSubmit();
-} 
+  addIconClose(wrapper, model);
+  addLoginSubmit(wrapper, model);
+  addRegisterSubmit(wrapper, model);
+} ;
 
 function addRegisterLink(wrapper) {
-  const registerLink = document.querySelector(".register-link");	
+  const registerLink = wrapper.querySelector(".register-link");	
   registerLink.addEventListener('click', () => {
     wrapper.classList.add('active');
   })
-}
+};
 
 
 function addLoginLink(wrapper) {
-  const loginLink = document.querySelector(".login-link");	
+  const loginLink = wrapper.querySelector(".login-link");	
   loginLink.addEventListener('click', () => {
     wrapper.classList.remove('active');
   })
+};
+
+
+function close_model(wrapper, model) {
+	wrapper.classList.remove('active-popup');
+	setTimeout(model.deleteFromDOM, 1000)
 }
 
 
-function addIconClose(wrapper) {
-  const iconClose = document.querySelector(".icon-close");	
+function addIconClose(wrapper, model) {
+  const iconClose = wrapper.querySelector(".icon-close");	
   iconClose.addEventListener('click', () => {
-    wrapper.classList.remove('active-popup');
-    setTimeout(model.deleteFromDOM, 1000)
+    close_model(wrapper, model);
   })
-}
+};
 
 
-function addLoginSubmit() {
+function addLoginSubmit(wrapper, model) {
   const loginBox = document.querySelector('.login');
   const loginSubmitBtn = document.querySelector('#login-submit');	
 
@@ -59,11 +64,12 @@ function addLoginSubmit() {
     })
     localStorage.setItem('loginInfo', loginInfo);
     console.log(loginInfo)
+		close_model(wrapper, model);
   });
-}
+};
 
 
-function addRegisterSubmit() {
+function addRegisterSubmit(wrapper, model) {
   const registerBox = document.querySelector('.register');
   const registerSubmitBtn = document.querySelector("#register-submit");	
 
@@ -76,5 +82,6 @@ function addRegisterSubmit() {
     })
     localStorage.setItem('registerInfo', registerInfo);
     console.log(registerInfo) 
+		close_model(wrapper, model);
   });
-}
+};
