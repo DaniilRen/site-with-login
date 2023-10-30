@@ -1,4 +1,4 @@
-import { loginModel } from "./loginModel";
+import { loginModel } from "./loginModel.js";
 
 
 export function addLoginForm() {

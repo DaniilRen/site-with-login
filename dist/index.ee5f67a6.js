@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"bcmUh":[function(require,module,exports) {
+})({"kKvH6":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "fe27fe52f5c48570";
+module.bundle.HMR_BUNDLE_ID = "2fd34748ee5f67a6";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,63 +574,81 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8ZNvh":[function(require,module,exports) {
-var _loginModel = require("./utils/loginModel");
-var _loginUtility = require("./utils/loginUtility");
-const model = new (0, _loginModel.loginModel)();
-model.toHTML();
-(0, _loginUtility.addInputListeners)();
-(0, _loginUtility.addWrapperListeners)();
-
-},{"./utils/loginUtility":"9qYMF","./utils/loginModel":"4056b"}],"9qYMF":[function(require,module,exports) {
+},{}],"9qYMF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addInputListeners", ()=>addInputListeners);
-parcelHelpers.export(exports, "addWrapperListeners", ()=>addWrapperListeners);
-function addInputListeners() {
+parcelHelpers.export(exports, "addLoginForm", ()=>addLoginForm);
+var _loginModelJs = require("./loginModel.js");
+function addLoginForm() {
+    const model = new (0, _loginModelJs.loginModel)();
+    const btnPopup = document.querySelector(".btnLogin-popup");
+    btnPopup.addEventListener("click", ()=>{
+        model.toHTML();
+        const wrapper = document.querySelector(".wrapper");
+        addListeners(wrapper, model);
+        setTimeout(()=>wrapper.classList.add("active-popup"), 10);
+    });
+}
+function addListeners(wrapper, model) {
+    addRegisterLink(wrapper);
+    addLoginLink(wrapper);
+    addIconClose(wrapper, model);
+    addLoginSubmit(wrapper, model);
+    addRegisterSubmit(wrapper, model);
+}
+function addRegisterLink(wrapper) {
+    const registerLink = wrapper.querySelector(".register-link");
+    registerLink.addEventListener("click", ()=>{
+        wrapper.classList.add("active");
+    });
+}
+function addLoginLink(wrapper) {
+    const loginLink = wrapper.querySelector(".login-link");
+    loginLink.addEventListener("click", ()=>{
+        wrapper.classList.remove("active");
+    });
+}
+function close_model(wrapper, model) {
+    wrapper.classList.remove("active-popup");
+    setTimeout(model.deleteFromDOM, 1000);
+}
+function addIconClose(wrapper, model) {
+    const iconClose = wrapper.querySelector(".icon-close");
+    iconClose.addEventListener("click", ()=>{
+        close_model(wrapper, model);
+    });
+}
+function addLoginSubmit(wrapper, model) {
     const loginBox = document.querySelector(".login");
-    const loginSubmitBtn = document.getElementById("login-submit");
+    const loginSubmitBtn = document.querySelector("#login-submit");
     loginSubmitBtn.addEventListener("click", ()=>{
-        loginInfo = {
+        loginInfo = JSON.stringify({
             email: loginBox.querySelector(".email").value,
             password: loginBox.querySelector(".password").value,
             remember: loginBox.querySelector(".remember-me").checked
-        };
+        });
+        localStorage.setItem("loginInfo", loginInfo);
         console.log(loginInfo);
+        close_model(wrapper, model);
     });
+}
+function addRegisterSubmit(wrapper, model) {
     const registerBox = document.querySelector(".register");
-    const registerSubmitBtn = document.getElementById("register-submit");
+    const registerSubmitBtn = document.querySelector("#register-submit");
     registerSubmitBtn.addEventListener("click", ()=>{
-        registerInfo = {
+        registerInfo = JSON.stringify({
             email: registerBox.querySelector(".email").value,
             password: registerBox.querySelector(".password").value,
             username: registerBox.querySelector(".username").value,
             agreement: registerBox.querySelector(".agreement").checked
-        };
+        });
+        localStorage.setItem("registerInfo", registerInfo);
         console.log(registerInfo);
-    });
-}
-function addWrapperListeners() {
-    const wrapper = document.querySelector(".wrapper");
-    const registerLink = document.querySelector(".register-link");
-    registerLink.addEventListener("click", ()=>{
-        wrapper.classList.add("active");
-    });
-    const loginLink = document.querySelector(".login-link");
-    loginLink.addEventListener("click", ()=>{
-        wrapper.classList.remove("active");
-    });
-    const btnPopup = document.querySelector(".btnLogin-popup");
-    btnPopup.addEventListener("click", ()=>{
-        wrapper.classList.add("active-popup");
-    });
-    const iconClose = document.querySelector(".icon-close");
-    iconClose.addEventListener("click", ()=>{
-        wrapper.classList.remove("active-popup");
+        close_model(wrapper, model);
     });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./loginModel.js":"4056b"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -660,81 +678,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"4056b":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "loginModel", ()=>loginModel);
-class loginModel {
-    toHTML() {
-        document.body.insertAdjacentHTML("beforeend", `
-    <div class="wrapper">
+},{}]},["kKvH6","9qYMF"], "9qYMF", "parcelRequire06a4")
 
-		<span class="icon-close">
-			<span class="icon-close-cross">+</span>
-		</span>
-
-		<div class="form-box login">
-			<h2>Login</h2>
-			<form action="#">
-				<div class="input-box">
-					<span class="icon"><ion-icon name="mail"></ion-icon></span>
-					<input class="email" type="email" required>
-					<label>Email</label>
-				</div>
-				<div class="input-box">
-					<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-					<input class="password" type="password" autocomplete="on" required>
-					<label>Password</label>
-				</div>
-				<div class="remember-forgot">
-					<label><input class="remember-me" type="checkbox">Remember me</label>
-					<a href="#">Forgot Password?</a>
-				</div>
-				<button type="submit" id="login-submit" class="btn">Login</button>
-				<div class="login-register">
-					<p>Don't have an account?<a href="#" class="register-link">Register</a></p>
-				</div>
-			</form>
-		</div>
-
-		<div class="form-box register">
-			<h2>Registration</h2>
-			<form action="#">
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="person"></ion-icon>
-					</span>
-					<input class="username" type="text" required>
-					<label>Username</label>
-				</div>
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="mail"></ion-icon>
-					</span>
-					<input class="email" type="email" required>
-					<label>Email</label>
-				</div>
-				<div class="input-box">
-					<span class="icon">
-						<ion-icon name="lock-closed"></ion-icon>
-					</span>
-					<input class="password type="password" autocomplete="on" required>
-					<label>Password</label>
-				</div>
-				<div class="remember-forgot">
-					<label><input class="agreement" type="checkbox">I agree to the terms & conditions</label>
-				</div>
-				<button type="submit" id="register-submit" class="btn">Register</button>
-				<div class="login-register">
-					<p>Already have an account?<a href="#" class="login-link">Login</a></p>
-				</div>
-			</form>
-		</div>
-
-	</div> `);
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["bcmUh","8ZNvh"], "8ZNvh", "parcelRequire06a4")
-
-//# sourceMappingURL=index.f5c48570.js.map
+//# sourceMappingURL=index.ee5f67a6.js.map

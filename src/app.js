@@ -1,3 +1,3 @@
-import { addLoginForm } from "./utils/loginUtility";
+import { addLoginForm } from "./utils/loginUtility.js";
 
 addLoginForm()
