@@ -10,7 +10,7 @@ export class loginModel {
 
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form action="#">
+				<form action='#' id="login-form">
 					<div class="input-box">
 						<span class="icon"><ion-icon name="mail"></ion-icon></span>
 						<input class="email" type="email" required>
@@ -34,7 +34,7 @@ export class loginModel {
 
 			<div class="form-box register">
 				<h2>Registration</h2>
-				<form action="#">
+				<form action='#' id="reg-form">
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>

@@ -53,35 +53,37 @@ function addIconClose(wrapper, model) {
 
 
 function addLoginSubmit(wrapper, model) {
-  const loginBox = document.querySelector('.login');
-  const loginSubmitBtn = document.querySelector('#login-submit');	
+	const form = document.getElementById('login-form');
+	const loginBox = document.querySelector('.login');
 
-  loginSubmitBtn.addEventListener('click', () => {
-    loginInfo = JSON.stringify({
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+		const loginInfo = JSON.stringify({
       email: loginBox.querySelector('.email').value,
       password: loginBox.querySelector('.password').value,
       remember: loginBox.querySelector('.remember-me').checked
-    })
+    });
+		console.log(loginInfo);
     localStorage.setItem('loginInfo', loginInfo);
-    console.log(loginInfo)
 		close_model(wrapper, model);
-  });
+	})
 };
 
 
 function addRegisterSubmit(wrapper, model) {
+	const form = document.getElementById('reg-form');
   const registerBox = document.querySelector('.register');
-  const registerSubmitBtn = document.querySelector("#register-submit");	
 
-  registerSubmitBtn.addEventListener('click', () => {
-    registerInfo = JSON.stringify({
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+    const registerInfo = JSON.stringify({
       email: registerBox.querySelector('.email').value,
       password: registerBox.querySelector('.password').value,
       username: registerBox.querySelector('.username').value,
       agreement: registerBox.querySelector('.agreement').checked
-    })
+    });
+		console.log(registerInfo);
     localStorage.setItem('registerInfo', registerInfo);
-    console.log(registerInfo) 
 		close_model(wrapper, model);
-  });
+	});
 };
