@@ -38,17 +38,17 @@ function addLoginLink(wrapper) {
 };
 
 
-function close_model(wrapper, model) {
-	wrapper.classList.remove('active-popup');
-	setTimeout(model.deleteFromDOM, 1000)
-}
-
-
 function addIconClose(wrapper, model) {
   const iconClose = wrapper.querySelector(".icon-close");	
   iconClose.addEventListener('click', () => {
     close_model(wrapper, model);
   })
+};
+
+
+function close_model(wrapper, model) {
+	wrapper.classList.remove('active-popup');
+	setTimeout(model.deleteFromDOM, 1000)
 };
 
 
@@ -58,13 +58,12 @@ function addLoginSubmit(wrapper, model) {
 
 	form.addEventListener('submit', e => {
 		e.preventDefault();
-		const loginInfo = JSON.stringify({
-      email: loginBox.querySelector('.email').value,
+		const data = {
+      mail: loginBox.querySelector('.email').value,
       password: loginBox.querySelector('.password').value,
-      remember: loginBox.querySelector('.remember-me').checked
-    });
-		console.log(loginInfo);
-    localStorage.setItem('loginInfo', loginInfo);
+      remember: loginBox.querySelector('.remember-me').checked.toString()
+    };
+		sendData(data);
 		close_model(wrapper, model);
 	})
 };
@@ -76,14 +75,24 @@ function addRegisterSubmit(wrapper, model) {
 
 	form.addEventListener('submit', e => {
 		e.preventDefault();
-    const registerInfo = JSON.stringify({
-      email: registerBox.querySelector('.email').value,
+    const data = {
+			name: registerBox.querySelector('.username').value,
+      mail: registerBox.querySelector('.email').value,
       password: registerBox.querySelector('.password').value,
-      username: registerBox.querySelector('.username').value,
-      agreement: registerBox.querySelector('.agreement').checked
-    });
-		console.log(registerInfo);
-    localStorage.setItem('registerInfo', registerInfo);
+      agreement: registerBox.querySelector('.agreement').checked.toString()
+    };
+		sendData(data);
 		close_model(wrapper, model);
 	});
 };
+
+
+async function sendData(data) {
+	const res = await fetch('./utils/form.php', {
+		method: 'POST',
+		headers: {'Content-type': 'application/json'},
+		body: JSON.stringify(data)
+	});
+	const answer = await res.json();
+	console.log(answer);
+}

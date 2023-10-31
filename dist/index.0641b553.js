@@ -612,44 +612,55 @@ function addLoginLink(wrapper) {
         wrapper.classList.remove("active");
     });
 }
-function close_model(wrapper, model) {
-    wrapper.classList.remove("active-popup");
-    setTimeout(model.deleteFromDOM, 1000);
-}
 function addIconClose(wrapper, model) {
     const iconClose = wrapper.querySelector(".icon-close");
     iconClose.addEventListener("click", ()=>{
         close_model(wrapper, model);
     });
 }
+function close_model(wrapper, model) {
+    wrapper.classList.remove("active-popup");
+    setTimeout(model.deleteFromDOM, 1000);
+}
 function addLoginSubmit(wrapper, model) {
+    const form = document.getElementById("login-form");
     const loginBox = document.querySelector(".login");
-    const loginSubmitBtn = document.querySelector("#login-submit");
-    loginSubmitBtn.addEventListener("click", ()=>{
-        loginInfo = JSON.stringify({
-            email: loginBox.querySelector(".email").value,
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const data = {
+            mail: loginBox.querySelector(".email").value,
             password: loginBox.querySelector(".password").value,
-            remember: loginBox.querySelector(".remember-me").checked
-        });
-        localStorage.setItem("loginInfo", loginInfo);
-        console.log(loginInfo);
+            remember: loginBox.querySelector(".remember-me").checked.toString()
+        };
+        sendData(data);
         close_model(wrapper, model);
     });
 }
 function addRegisterSubmit(wrapper, model) {
+    const form = document.getElementById("reg-form");
     const registerBox = document.querySelector(".register");
-    const registerSubmitBtn = document.querySelector("#register-submit");
-    registerSubmitBtn.addEventListener("click", ()=>{
-        registerInfo = JSON.stringify({
-            email: registerBox.querySelector(".email").value,
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const data = {
+            name: registerBox.querySelector(".username").value,
+            mail: registerBox.querySelector(".email").value,
             password: registerBox.querySelector(".password").value,
-            username: registerBox.querySelector(".username").value,
-            agreement: registerBox.querySelector(".agreement").checked
-        });
-        localStorage.setItem("registerInfo", registerInfo);
-        console.log(registerInfo);
+            agreement: registerBox.querySelector(".agreement").checked.toString()
+        };
+        sendData(data);
         close_model(wrapper, model);
     });
+}
+async function sendData(data) {
+    const res = await fetch("./utils/form.php", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+    const answer = await res.json();
+    console.log(answer);
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./loginModel.js":"4056b"}],"gkKU3":[function(require,module,exports) {
@@ -698,7 +709,7 @@ class loginModel {
 
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form action="#">
+				<form action='#' id="login-form">
 					<div class="input-box">
 						<span class="icon"><ion-icon name="mail"></ion-icon></span>
 						<input class="email" type="email" required>
@@ -722,7 +733,7 @@ class loginModel {
 
 			<div class="form-box register">
 				<h2>Registration</h2>
-				<form action="#">
+				<form action='#' id="reg-form">
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
