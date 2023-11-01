@@ -88,7 +88,7 @@ function addRegisterSubmit(wrapper, model) {
 
 
 async function sendData(data) {
-	const res = await fetch('./utils/form.php', {
+	const res = await fetch('./utils/registration.php', {
 		method: 'POST',
 		headers: {'Content-type': 'application/json'},
 		body: JSON.stringify(data)
