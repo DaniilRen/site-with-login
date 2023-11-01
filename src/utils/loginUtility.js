@@ -97,11 +97,12 @@ async function register(data) {
 }
 
 async function login(data) {
-	const res = await fetch('./utils/login.php', {
+	const response = await fetch('./utils/login.php', {
+		mode: 'no-cors',
 		method: 'POST',
 		headers: {'Content-type': 'application/json'},
 		body: JSON.stringify(data)
 	});
-	const answer = await res.json();
-	console.log(answer);
+	const redirect = await response;
+	window.location.href=redirect['url'];
 }

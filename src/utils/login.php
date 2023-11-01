@@ -18,7 +18,7 @@ function flash(?string $message = null)
 
 function is_registered($dbc, $mail) {
 	$query = "SELECT mail FROM test WHERE mail = '$mail'";
-	return mysqli_query($dbc, $query)->num_rows == 1;
+	return (mysqli_query($dbc, $query)->num_rows == 1);
 }
 
 
@@ -40,18 +40,14 @@ $password = $data['password'];
 $remember = $data['remember'];
 
 $registered = is_registered($dbc, $mail);
+echo $registered;
 if (!$registered) {
-	header('Content-type: application/json');
-	print json_encode(array('message' => 'Unknown account',
-	'registered' => $registered));
 	// flash('Пользователь с такой почтой не найден');
-	// header('Location: https://www.php.net/manual/en/function.header.php');
+	header('Location: ../index.html');
 	die;
 }
 
-http_response_code('201');
-header('Content-type: application/json');
-print json_encode(array('message' => 'Successfully loged in',
-	'registered' => $registered));
+// http_response_code('201');
+header('Location: ../panel.html');
 
 mysqli_close($dbc);
