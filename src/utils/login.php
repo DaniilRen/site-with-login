@@ -1,6 +1,21 @@
 <?php
 
 
+function flash(?string $message = null)
+{
+    if ($message) {
+        $_SESSION['flash'] = $message;
+    } else {
+        if (!empty($_SESSION['flash'])) { ?>
+          <div class="alert alert-danger mb-3">
+              <?=$_SESSION['flash']?>
+          </div>
+        <?php }
+        unset($_SESSION['flash']);
+    }
+}
+
+
 function is_registered($dbc, $mail) {
 	$query = "SELECT mail FROM test WHERE mail = '$mail'";
 	return mysqli_query($dbc, $query)->num_rows == 1;
@@ -24,16 +39,13 @@ $mail = $data['mail'];
 $password = $data['password'];
 $remember = $data['remember'];
 
-$user = mysqli_query($dbc, "SELECT * FROM test WHERE mail = '$mail'");
-echo $user->content;
-
 $registered = is_registered($dbc, $mail);
 if (!$registered) {
 	header('Content-type: application/json');
 	print json_encode(array('message' => 'Unknown account',
 	'registered' => $registered));
-	// flash('Пользователь с такими данными не зарегистрирован');
-	// header('Location: login.php');
+	// flash('Пользователь с такой почтой не найден');
+	// header('Location: https://www.php.net/manual/en/function.header.php');
 	die;
 }
 

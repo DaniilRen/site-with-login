@@ -63,7 +63,7 @@ function addLoginSubmit(wrapper, model) {
       password: loginBox.querySelector('.password').value,
       remember: loginBox.querySelector('.remember-me').checked.toString()
     };
-		sendData(data);
+		login(data);
 		close_model(wrapper, model);
 	})
 };
@@ -81,14 +81,23 @@ function addRegisterSubmit(wrapper, model) {
       password: registerBox.querySelector('.password').value,
       agreement: registerBox.querySelector('.agreement').checked.toString()
     };
-		sendData(data);
+		register(data);
 		close_model(wrapper, model);
 	});
 };
 
-
-async function sendData(data) {
+async function register(data) {
 	const res = await fetch('./utils/registration.php', {
+		method: 'POST',
+		headers: {'Content-type': 'application/json'},
+		body: JSON.stringify(data)
+	});
+	const answer = await res.json();
+	console.log(answer);
+}
+
+async function login(data) {
+	const res = await fetch('./utils/login.php', {
 		method: 'POST',
 		headers: {'Content-type': 'application/json'},
 		body: JSON.stringify(data)
