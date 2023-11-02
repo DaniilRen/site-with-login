@@ -7,18 +7,18 @@
 }
 
 body {
-  min-height: 100vh;
   background: url("background3.7d051846.jpg") center / cover no-repeat;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   display: flex;
 }
 
 header {
-  width: 100%;
   z-index: 99;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 20px 100px;
   display: flex;
   position: fixed;
@@ -44,11 +44,11 @@ header {
 
 .navigation a:after {
   content: "";
-  width: 100%;
-  height: 3px;
   transform-origin: 100%;
   background: #fff;
   border-radius: 5px;
+  width: 100%;
+  height: 3px;
   transition: transform .5s;
   position: absolute;
   bottom: -6px;
@@ -62,14 +62,14 @@ header {
 }
 
 .navigation .btnLogin-popup {
-  width: 130px;
-  height: 50px;
   cursor: pointer;
   color: #fff;
   background: none;
   border: 2px solid #fff;
   border-radius: 6px;
   outline: none;
+  width: 130px;
+  height: 50px;
   margin-left: 40px;
   font-size: 1.1em;
   font-weight: 400;
@@ -91,8 +91,8 @@ header {
 }
 
 .login-hidden-box {
-  width: 100%;
   justify-content: center;
+  width: 100%;
   display: flex;
   position: fixed;
   top: 20vh;
@@ -100,8 +100,6 @@ header {
 }
 
 .wrapper {
-  width: 400px;
-  height: 440px;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background: none;
@@ -109,6 +107,8 @@ header {
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  width: 400px;
+  height: 440px;
   transition: transform .3s, height .2s;
   display: flex;
   position: relative;
@@ -152,8 +152,6 @@ header {
 }
 
 .icon-close {
-  width: 45px;
-  height: 45px;
   color: #fff;
   cursor: pointer;
   z-index: 1;
@@ -161,6 +159,8 @@ header {
   border-bottom-left-radius: 20px;
   justify-content: center;
   align-items: center;
+  width: 45px;
+  height: 45px;
   font-size: 2em;
   display: flex;
   position: absolute;
@@ -181,9 +181,9 @@ header {
 }
 
 .input-box {
+  border-bottom: 2px solid #162938;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #162938;
   margin: 30px 0;
   position: relative;
 }
@@ -205,12 +205,12 @@ header {
 }
 
 .input-box input {
-  width: 100%;
-  height: 100%;
   color: #162938;
   background: none;
   border: none;
   outline: none;
+  width: 100%;
+  height: 100%;
   padding: 0 35px 0 5px;
   font-size: 1em;
   font-weight: 600;
@@ -248,14 +248,14 @@ header {
 }
 
 .btn {
-  width: 100%;
-  height: 45px;
   cursor: pointer;
   color: #fff;
   background: #162938;
   border: none;
   border-radius: 6px;
   outline: none;
+  width: 100%;
+  height: 45px;
   font-size: 1em;
   font-weight: 500;
 }
@@ -280,12 +280,12 @@ header {
 
 .about-content {
   color: #fff;
-  width: 65vw;
-  height: 75vh;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border: 2px solid #ffffff80;
   border-radius: 20px;
+  width: 65vw;
+  height: 75vh;
   padding: 4vh;
   transition: transform .3s, height .2s;
   position: relative;

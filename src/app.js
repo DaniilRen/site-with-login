@@ -1,3 +1,3 @@
-import { addLoginForm } from "./utils/loginUtility";
+import { addForm } from "./form_elements/modal_boot"
 
-addLoginForm()
+addForm();

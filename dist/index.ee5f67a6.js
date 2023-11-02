@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"iWvxK":[function(require,module,exports) {
+})({"kKvH6":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "fe4256060641b553";
+module.bundle.HMR_BUNDLE_ID = "2fd34748ee5f67a6";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,117 +574,81 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"bNKaB":[function(require,module,exports) {
-var _modalBoot = require("./form_elements/modal_boot");
-(0, _modalBoot.addForm)();
-
-},{"./form_elements/modal_boot":"8GIiN"}],"8GIiN":[function(require,module,exports) {
+},{}],"9qYMF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addForm", ()=>addForm);
-var _modalJs = require("./modal.js");
-var _interListenersJs = require("./inter_listeners.js");
-var _submitListenersJs = require("./submit_listeners.js");
-function addListeners(wrapper, model) {
-    (0, _interListenersJs.addRegisterLink)(wrapper);
-    (0, _interListenersJs.addLoginLink)(wrapper);
-    (0, _interListenersJs.addIconClose)(wrapper, model);
-    (0, _submitListenersJs.addLoginSubmit)(wrapper, model);
-    (0, _submitListenersJs.addRegisterSubmit)(wrapper, model);
-}
-function addForm() {
-    const modal_ = new (0, _modalJs.modal)();
+parcelHelpers.export(exports, "addLoginForm", ()=>addLoginForm);
+var _loginModelJs = require("./loginModel.js");
+function addLoginForm() {
+    const model = new (0, _loginModelJs.loginModel)();
     const btnPopup = document.querySelector(".btnLogin-popup");
     btnPopup.addEventListener("click", ()=>{
-        modal_.toHTML();
+        model.toHTML();
         const wrapper = document.querySelector(".wrapper");
-        addListeners(wrapper, modal_);
+        addListeners(wrapper, model);
         setTimeout(()=>wrapper.classList.add("active-popup"), 10);
     });
 }
-
-},{"./modal.js":"7eEXY","./inter_listeners.js":"24d5C","./submit_listeners.js":"3rNxP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7eEXY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "modal", ()=>modal);
-class modal {
-    toHTML() {
-        const div = document.querySelector(".login-hidden-box");
-        div.innerHTML = `
-    <div class="wrapper">
-
-			<span class="icon-close">
-				<span class="icon-close-cross">+</span>
-			</span>
-
-			<div class="form-box login">
-				<h2>Login</h2>
-				<form id="login-form">
-					<div class="input-box">
-						<span class="icon"><ion-icon name="mail"></ion-icon></span>
-						<input class="email" type="email" required>
-						<label>Email</label>
-					</div>
-					<div class="input-box">
-						<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-						<input class="password" type="password" autocomplete="on" required>
-						<label>Password</label>
-					</div>
-					<div class="remember-forgot">
-						<label><input class="remember-me" type="checkbox">Remember me</label>
-						<a href="#">Forgot Password?</a>
-					</div>
-					<button type="submit" id="login-submit" class="btn">Login</button>
-					<div class="login-register">
-						<p>Don't have an account?<a href="#" class="register-link">Register</a></p>
-					</div>
-				</form>
-			</div>
-
-			<div class="form-box register">
-				<h2>Registration</h2>
-				<form id="reg-form">
-					<div class="input-box">
-						<span class="icon">
-							<ion-icon name="person"></ion-icon>
-						</span>
-						<input class="username" type="text" required>
-						<label>Username</label>
-					</div>
-					<div class="input-box">
-						<span class="icon">
-							<ion-icon name="mail"></ion-icon>
-						</span>
-						<input class="email" type="email" required>
-						<label>Email</label>
-					</div>
-					<div class="input-box">
-						<span class="icon">
-							<ion-icon name="lock-closed"></ion-icon>
-						</span>
-						<input class="password type="password" autocomplete="on" required>
-						<label>Password</label>
-					</div>
-					<div class="remember-forgot">
-						<label><input class="agreement" type="checkbox">I agree to the terms & conditions</label>
-					</div>
-					<button type="submit" id="register-submit" class="btn">Register</button>
-					<div class="login-register">
-						<p>Already have an account?<a href="#" class="login-link">Login</a></p>
-					</div>
-				</form>
-			</div>
-
-		</div> 
-	`;
-    }
-    deleteFromDOM() {
-        const div = document.querySelector(".login-hidden-box");
-        div.innerHTML = "";
-    }
+function addListeners(wrapper, model) {
+    addRegisterLink(wrapper);
+    addLoginLink(wrapper);
+    addIconClose(wrapper, model);
+    addLoginSubmit(wrapper, model);
+    addRegisterSubmit(wrapper, model);
+}
+function addRegisterLink(wrapper) {
+    const registerLink = wrapper.querySelector(".register-link");
+    registerLink.addEventListener("click", ()=>{
+        wrapper.classList.add("active");
+    });
+}
+function addLoginLink(wrapper) {
+    const loginLink = wrapper.querySelector(".login-link");
+    loginLink.addEventListener("click", ()=>{
+        wrapper.classList.remove("active");
+    });
+}
+function close_model(wrapper, model) {
+    wrapper.classList.remove("active-popup");
+    setTimeout(model.deleteFromDOM, 1000);
+}
+function addIconClose(wrapper, model) {
+    const iconClose = wrapper.querySelector(".icon-close");
+    iconClose.addEventListener("click", ()=>{
+        close_model(wrapper, model);
+    });
+}
+function addLoginSubmit(wrapper, model) {
+    const loginBox = document.querySelector(".login");
+    const loginSubmitBtn = document.querySelector("#login-submit");
+    loginSubmitBtn.addEventListener("click", ()=>{
+        loginInfo = JSON.stringify({
+            email: loginBox.querySelector(".email").value,
+            password: loginBox.querySelector(".password").value,
+            remember: loginBox.querySelector(".remember-me").checked
+        });
+        localStorage.setItem("loginInfo", loginInfo);
+        console.log(loginInfo);
+        close_model(wrapper, model);
+    });
+}
+function addRegisterSubmit(wrapper, model) {
+    const registerBox = document.querySelector(".register");
+    const registerSubmitBtn = document.querySelector("#register-submit");
+    registerSubmitBtn.addEventListener("click", ()=>{
+        registerInfo = JSON.stringify({
+            email: registerBox.querySelector(".email").value,
+            password: registerBox.querySelector(".password").value,
+            username: registerBox.querySelector(".username").value,
+            agreement: registerBox.querySelector(".agreement").checked
+        });
+        localStorage.setItem("registerInfo", registerInfo);
+        console.log(registerInfo);
+        close_model(wrapper, model);
+    });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./loginModel.js":"4056b"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -714,94 +678,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"24d5C":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addRegisterLink", ()=>addRegisterLink);
-parcelHelpers.export(exports, "addLoginLink", ()=>addLoginLink);
-parcelHelpers.export(exports, "addIconClose", ()=>addIconClose);
-parcelHelpers.export(exports, "close_modal", ()=>close_modal);
-function addRegisterLink(wrapper) {
-    const registerLink = wrapper.querySelector(".register-link");
-    registerLink.addEventListener("click", ()=>{
-        wrapper.classList.add("active");
-    });
-}
-function addLoginLink(wrapper) {
-    const loginLink = wrapper.querySelector(".login-link");
-    loginLink.addEventListener("click", ()=>{
-        wrapper.classList.remove("active");
-    });
-}
-function addIconClose(wrapper, model) {
-    const iconClose = wrapper.querySelector(".icon-close");
-    iconClose.addEventListener("click", ()=>{
-        close_modal(wrapper, model);
-    });
-}
-function close_modal(wrapper, model) {
-    wrapper.classList.remove("active-popup");
-    setTimeout(model.deleteFromDOM, 1000);
-}
+},{}]},["kKvH6","9qYMF"], "9qYMF", "parcelRequire06a4")
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3rNxP":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addLoginSubmit", ()=>addLoginSubmit);
-parcelHelpers.export(exports, "addRegisterSubmit", ()=>addRegisterSubmit);
-var _interListenersJs = require("./inter_listeners.js");
-function addLoginSubmit(wrapper, model) {
-    const form = document.getElementById("login-form");
-    const loginBox = document.querySelector(".login");
-    form.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const data = {
-            mail: loginBox.querySelector(".email").value,
-            password: loginBox.querySelector(".password").value,
-            remember: loginBox.querySelector(".remember-me").checked.toString()
-        };
-        login(data);
-        (0, _interListenersJs.close_modal)(wrapper, model);
-    });
-}
-function addRegisterSubmit(wrapper, model) {
-    const form = document.getElementById("reg-form");
-    const registerBox = document.querySelector(".register");
-    form.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const data = {
-            name: registerBox.querySelector(".username").value,
-            mail: registerBox.querySelector(".email").value,
-            password: registerBox.querySelector(".password").value,
-            agreement: registerBox.querySelector(".agreement").checked.toString()
-        };
-        register(data);
-        (0, _interListenersJs.close_modal)(wrapper, model);
-    });
-}
-async function register(data) {
-    const res = await fetch("../database/registration.php", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    const answer = await res.json();
-    console.log(answer);
-}
-async function login(data) {
-    const response = await fetch("../database/login.php", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    const redirect = await response;
-    window.location.href = redirect["url"];
-}
-
-},{"./inter_listeners.js":"24d5C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iWvxK","bNKaB"], "bNKaB", "parcelRequire06a4")
-
-//# sourceMappingURL=index.0641b553.js.map
+//# sourceMappingURL=index.ee5f67a6.js.map
