@@ -1,7 +1,4 @@
-export class loginModel {
-  toHTML () {
-		const div = document.querySelector('.login-hidden-box');
-    div.innerHTML = `
+class e{toHTML(){let e=document.querySelector(".login-hidden-box");e.innerHTML=`
     <div class="wrapper">
 
 			<span class="icon-close">
@@ -67,11 +64,4 @@ export class loginModel {
 			</div>
 
 		</div> 
-	`
-  };
-
-	deleteFromDOM() {
-		const div = document.querySelector('.login-hidden-box');
-		div.innerHTML = ''
-	};
-}
+	`}deleteFromDOM(){let e=document.querySelector(".login-hidden-box");e.innerHTML=""}}function t(e,t){e.classList.remove("active-popup"),setTimeout(t.deleteFromDOM,1e3)}async function i(e){let t=await fetch("./utils/registration.php",{method:"POST",headers:{"Content-type":"application/json"},body:JSON.stringify(e)}),i=await t.json();console.log(i)}!function(){let o=new e,n=document.querySelector(".btnLogin-popup");n.addEventListener("click",()=>{o.toHTML();let e=document.querySelector(".wrapper");(function(e){let t=e.querySelector(".register-link");t.addEventListener("click",()=>{e.classList.add("active")})})(e),function(e){let t=e.querySelector(".login-link");t.addEventListener("click",()=>{e.classList.remove("active")})}(e),function(e,i){let o=e.querySelector(".icon-close");o.addEventListener("click",()=>{t(e,i)})}(e,o),function(e,o){let n=document.getElementById("login-form"),s=document.querySelector(".login");n.addEventListener("submit",n=>{n.preventDefault();let l={mail:s.querySelector(".email").value,password:s.querySelector(".password").value,remember:s.querySelector(".remember-me").checked.toString()};i(l),t(e,o)})}(e,o),function(e,o){let n=document.getElementById("reg-form"),s=document.querySelector(".register");n.addEventListener("submit",n=>{n.preventDefault();let l={name:s.querySelector(".username").value,mail:s.querySelector(".email").value,password:s.querySelector(".password").value,agreement:s.querySelector(".agreement").checked.toString()};i(l),t(e,o)})}(e,o),setTimeout(()=>e.classList.add("active-popup"),10)})}();

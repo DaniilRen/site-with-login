@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"iWvxK":[function(require,module,exports) {
+})({"eZO1D":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "fe4256060641b553";
+module.bundle.HMR_BUNDLE_ID = "c178b13bb1c0fc56";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,40 +574,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"bNKaB":[function(require,module,exports) {
-var _modalBoot = require("./form_elements/modal_boot");
-(0, _modalBoot.addForm)();
-
-},{"./form_elements/modal_boot":"8GIiN"}],"8GIiN":[function(require,module,exports) {
+},{}],"4056b":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addForm", ()=>addForm);
-var _modalJs = require("./modal.js");
-var _interListenersJs = require("./inter_listeners.js");
-var _submitListenersJs = require("./submit_listeners.js");
-function addListeners(wrapper, model) {
-    (0, _interListenersJs.addRegisterLink)(wrapper);
-    (0, _interListenersJs.addLoginLink)(wrapper);
-    (0, _interListenersJs.addIconClose)(wrapper, model);
-    (0, _submitListenersJs.addLoginSubmit)(wrapper, model);
-    (0, _submitListenersJs.addRegisterSubmit)(wrapper, model);
-}
-function addForm() {
-    const modal_ = new (0, _modalJs.modal)();
-    const btnPopup = document.querySelector(".btnLogin-popup");
-    btnPopup.addEventListener("click", ()=>{
-        modal_.toHTML();
-        const wrapper = document.querySelector(".wrapper");
-        addListeners(wrapper, modal_);
-        setTimeout(()=>wrapper.classList.add("active-popup"), 10);
-    });
-}
-
-},{"./modal.js":"7eEXY","./inter_listeners.js":"24d5C","./submit_listeners.js":"3rNxP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7eEXY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "modal", ()=>modal);
-class modal {
+parcelHelpers.export(exports, "loginModel", ()=>loginModel);
+class loginModel {
     toHTML() {
         const div = document.querySelector(".login-hidden-box");
         div.innerHTML = `
@@ -619,7 +590,7 @@ class modal {
 
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form id="login-form">
+				<form action="#">
 					<div class="input-box">
 						<span class="icon"><ion-icon name="mail"></ion-icon></span>
 						<input class="email" type="email" required>
@@ -643,7 +614,7 @@ class modal {
 
 			<div class="form-box register">
 				<h2>Registration</h2>
-				<form id="reg-form">
+				<form action="#">
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
@@ -684,124 +655,6 @@ class modal {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["eZO1D","4056b"], "4056b", "parcelRequire06a4")
 
-},{}],"24d5C":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addRegisterLink", ()=>addRegisterLink);
-parcelHelpers.export(exports, "addLoginLink", ()=>addLoginLink);
-parcelHelpers.export(exports, "addIconClose", ()=>addIconClose);
-parcelHelpers.export(exports, "close_modal", ()=>close_modal);
-function addRegisterLink(wrapper) {
-    const registerLink = wrapper.querySelector(".register-link");
-    registerLink.addEventListener("click", ()=>{
-        wrapper.classList.add("active");
-    });
-}
-function addLoginLink(wrapper) {
-    const loginLink = wrapper.querySelector(".login-link");
-    loginLink.addEventListener("click", ()=>{
-        wrapper.classList.remove("active");
-    });
-}
-function addIconClose(wrapper, model) {
-    const iconClose = wrapper.querySelector(".icon-close");
-    iconClose.addEventListener("click", ()=>{
-        close_modal(wrapper, model);
-    });
-}
-function close_modal(wrapper, model) {
-    wrapper.classList.remove("active-popup");
-    setTimeout(model.deleteFromDOM, 1000);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3rNxP":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addLoginSubmit", ()=>addLoginSubmit);
-parcelHelpers.export(exports, "addRegisterSubmit", ()=>addRegisterSubmit);
-var _interListenersJs = require("./inter_listeners.js");
-function addLoginSubmit(wrapper, model) {
-    const form = document.getElementById("login-form");
-    const loginBox = document.querySelector(".login");
-    form.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const data = {
-            mail: loginBox.querySelector(".email").value,
-            password: loginBox.querySelector(".password").value,
-            remember: loginBox.querySelector(".remember-me").checked.toString()
-        };
-        login(data);
-        (0, _interListenersJs.close_modal)(wrapper, model);
-    });
-}
-function addRegisterSubmit(wrapper, model) {
-    const form = document.getElementById("reg-form");
-    const registerBox = document.querySelector(".register");
-    form.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const data = {
-            name: registerBox.querySelector(".username").value,
-            mail: registerBox.querySelector(".email").value,
-            password: registerBox.querySelector(".password").value,
-            agreement: registerBox.querySelector(".agreement").checked.toString()
-        };
-        register(data);
-        (0, _interListenersJs.close_modal)(wrapper, model);
-    });
-}
-async function register(data) {
-    const res = await fetch("../database/registration.php", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    const answer = await res.json();
-    console.log(answer);
-}
-async function login(data) {
-    const response = await fetch("../database/login.php", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    const redirect = await response;
-    window.location.href = redirect["url"];
-}
-
-},{"./inter_listeners.js":"24d5C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iWvxK","bNKaB"], "bNKaB", "parcelRequire06a4")
-
-//# sourceMappingURL=index.0641b553.js.map
+//# sourceMappingURL=index.b1c0fc56.js.map

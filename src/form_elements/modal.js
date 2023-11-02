@@ -1,4 +1,4 @@
-export class loginModel {
+export class modal {
   toHTML () {
 		const div = document.querySelector('.login-hidden-box');
     div.innerHTML = `
@@ -10,7 +10,7 @@ export class loginModel {
 
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form action='./utils/login.php' method="post" id="login-form">
+				<form id="login-form">
 					<div class="input-box">
 						<span class="icon"><ion-icon name="mail"></ion-icon></span>
 						<input class="email" type="email" required>
@@ -34,7 +34,7 @@ export class loginModel {
 
 			<div class="form-box register">
 				<h2>Registration</h2>
-				<form action='./utils/registration.php' method="post" id="reg-form">
+				<form id="reg-form">
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>

@@ -1,4 +1,4 @@
-import { loginModel } from "./loginModel";
+import { loginModel } from "./loginModel.js";
 
 
 export function addLoginForm() {
@@ -38,12 +38,6 @@ function addLoginLink(wrapper) {
 };
 
 
-function close_model(wrapper, model) {
-	wrapper.classList.remove('active-popup');
-	setTimeout(model.deleteFromDOM, 1000)
-}
-
-
 function addIconClose(wrapper, model) {
   const iconClose = wrapper.querySelector(".icon-close");	
   iconClose.addEventListener('click', () => {
@@ -52,36 +46,63 @@ function addIconClose(wrapper, model) {
 };
 
 
-function addLoginSubmit(wrapper, model) {
-  const loginBox = document.querySelector('.login');
-  const loginSubmitBtn = document.querySelector('#login-submit');	
+function close_model(wrapper, model) {
+	wrapper.classList.remove('active-popup');
+	setTimeout(model.deleteFromDOM, 1000)
+};
 
-  loginSubmitBtn.addEventListener('click', () => {
-    loginInfo = JSON.stringify({
-      email: loginBox.querySelector('.email').value,
+
+function addLoginSubmit(wrapper, model) {
+	const form = document.getElementById('login-form');
+	const loginBox = document.querySelector('.login');
+
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+		const data = {
+      mail: loginBox.querySelector('.email').value,
       password: loginBox.querySelector('.password').value,
-      remember: loginBox.querySelector('.remember-me').checked
-    })
-    localStorage.setItem('loginInfo', loginInfo);
-    console.log(loginInfo)
+      remember: loginBox.querySelector('.remember-me').checked.toString()
+    };
+		login(data);
 		close_model(wrapper, model);
-  });
+	})
 };
 
 
 function addRegisterSubmit(wrapper, model) {
+	const form = document.getElementById('reg-form');
   const registerBox = document.querySelector('.register');
-  const registerSubmitBtn = document.querySelector("#register-submit");	
 
-  registerSubmitBtn.addEventListener('click', () => {
-    registerInfo = JSON.stringify({
-      email: registerBox.querySelector('.email').value,
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+    const data = {
+			name: registerBox.querySelector('.username').value,
+      mail: registerBox.querySelector('.email').value,
       password: registerBox.querySelector('.password').value,
-      username: registerBox.querySelector('.username').value,
-      agreement: registerBox.querySelector('.agreement').checked
-    })
-    localStorage.setItem('registerInfo', registerInfo);
-    console.log(registerInfo) 
+      agreement: registerBox.querySelector('.agreement').checked.toString()
+    };
+		register(data);
 		close_model(wrapper, model);
-  });
+	});
 };
+
+async function register(data) {
+	const res = await fetch('./utils/registration.php', {
+		method: 'POST',
+		headers: {'Content-type': 'application/json'},
+		body: JSON.stringify(data)
+	});
+	const answer = await res.json();
+	console.log(answer);
+}
+
+async function login(data) {
+	const response = await fetch('./utils/login.php', {
+		mode: 'no-cors',
+		method: 'POST',
+		headers: {'Content-type': 'application/json'},
+		body: JSON.stringify(data)
+	});
+	const redirect = await response;
+	window.location.href=redirect['url'];
+}
