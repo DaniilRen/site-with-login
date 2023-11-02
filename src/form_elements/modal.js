@@ -10,7 +10,11 @@ export class modal {
 
 			<div class="form-box login">
 				<h2>Login</h2>
+<<<<<<<< HEAD:src/form_elements/modal.js
 				<form id="login-form">
+========
+				<form action='./utils/login.php' method="post" id="login-form">
+>>>>>>>> 7869f69128a635e86c9a8f7d39048bc6258d040c:src/utils/loginModel.js
 					<div class="input-box">
 						<span class="icon"><ion-icon name="mail"></ion-icon></span>
 						<input class="email" type="email" required>
@@ -34,7 +38,11 @@ export class modal {
 
 			<div class="form-box register">
 				<h2>Registration</h2>
+<<<<<<<< HEAD:src/form_elements/modal.js
 				<form id="reg-form">
+========
+				<form action='./utils/registration.php' method="post" id="reg-form">
+>>>>>>>> 7869f69128a635e86c9a8f7d39048bc6258d040c:src/utils/loginModel.js
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
