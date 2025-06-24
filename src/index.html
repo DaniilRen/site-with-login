@@ -1,35 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home page</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="lzhamoPpfk0dIk0bN5mLIydoTmyjcKsmdPXCSJGRwzA" />    
+    <meta name="yandex-verification" content="d7d6c07a04358b27" />
+    <title>Litera-V</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(98090498, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/98090498" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
-
 <body>
-	
 	<header>
-		<h2 class="logo">Simple Database</h2>
-		<nav class="navigation">
-			<a href="index.html">Home</a>
-			<a href="about.html">About</a>
-			<a href="#">Contact</a>
-			<button class="btnLogin-popup">Login</button>
-		</nav>
+		<div class="burger-menu">
+			<a href="" class="burger-menu_button">
+				<spun class="burger-menu_lines"></spun>
+			</a>
+			<nav class="burger-menu_nav">
+				<a href="#about" class="burger-menu_link">О компании</a>
+				<a href="#software" class="burger-menu_link">Софт</a>
+				<a href="#projects" class="burger-menu_link">Реализованные проекты</a>
+				<a href="#custom-dev" class="burger-menu_link">Индивидуальная разработка</a>
+				<a href="#contact" class="burger-menu_link">Контакты</a>
+			</nav>
+			<div class="burger-menu_overlay"></div>
+		</div>
+
+		<h1>Litera-V</h1>
+		<div class="nav">
+			<div class="nav-holder">
+				<a href="#about">О компании</a>
+			</div>
+			<div class="nav-holder">
+				<a href="#software">Софт</a>
+			</div>
+			<div class="nav-holder">
+				<a href="#projects">Реализованные проекты</a>
+			</div>
+			<div class="nav-holder">
+				<a href="#custom-dev">Индивидуальная разработка</a>
+			</div>
+			<div class="nav-holder">
+				<a href="#contact">Контакты</a>
+			</div>
+		</div>
 	</header>
+	
+	<main>
+		<section id="hero">
+			<div id="container">
+				<div id="text-holder">
+					<h1>Акционерное общество Научно-производственная компания «Литера-V»</h1>
+					<p class="transp">Разработка, внедрение и техническое обслуживание современных программно-аппаратных комплексов</p>
+					<a class="btn" id="about-btn" href="#about">Узнать больше</a>
+				</div>
+				<div id="logo-holder">
+					<img src="./assets/imgs/logo.jpg" alt="">
+				</div>
+			</div>
+		</section>
 
-	<div id="home-main-title">
-		<h1>What`s interesting here?</h1>
-	</div>
+		<section id="about" class="gray-sec">
+			<div class="row" id="row-1">
+				<div>
+					<h2>О компании</h2>
+					<p class=desc>Научно-производственная компания "Литера-V" с 2019 года занимается разработкой, внедрением и техническим обслуживанием современных решений в области информационных технологий.</p>
+				</div>
+				<div id="banner-group">
+					<div class="row">
+						<div class="banner" id="banner-1"></div>
+						<div class="banner" id="banner-2"></div>
+					</div>
+					<div class="row">
+						<div class="banner" id="banner-3"></div>
+						<div class="banner" id="banner-4"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
+		<section id="containers">
+			<div class="centered-row">
+				<h2 class="dot">Пункты управления в контейнере</h2>
+				<p class="transp">Мобильные, надежные и универсальные контрольные решения.</p>
+			</div>
+			<div class="row">
+				<div class="info-block">
+					<p class=desc>Мобильные пункты управления в контейнерах и фургонах — универсальные решения для организации контроля и управления на строительных площадках, в атомной энергетике, железнодорожной и нефтегазовой отраслях, а также для управления беспилотниками, проведения массовых мероприятий и работы в условиях ЧС. <br> <br>
+						Конструкция, системы жизнеобеспечения и электронные компоненты разработаны с учетом удобства транспортировки и быстрого развертывания, выдерживая повышенные требования к внешним воздействиям. Изделия построены на базе цельносварной металлической рамы с сэндвич-панелями, что обеспечивает надежность и долговечность — срок службы не менее 30 лет. <br> <br>
+						Контейнеры оснащены подъемными механизмами, значительно упрощающими погрузочно-разгрузочные работы на месте эксплуатации. Все пункты управления комплектуются необходимыми системами жизнеобеспечения и специализированным оборудованием, готовым к работе «под ключ».</p>
+				</div>
+				<div class="row">
+						<div class="banner-cont" id="banner-5"></div>
+						<div class="banner-cont" id="banner-6"></div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="gray-sec" id="software">
+			<div class="centered-row">
+				<h2 class="dot">Софт</h2>
+				<p class="transp">Детали о программном обеспечении, которое мы разрабатываем</p>
+			</div>
+			<div class="row">
+				<img class="patent" src="./assets/patent-1_page-0001.jpg">
+				<div class="info-block">
+					<h3>Интерактивная программа для вовлечения пользователя в тематику через визуализацию загруженного контента и поисковую систему</h3>
+					<hr>
+					<p class="transp">Свидетельство о регистрации Роспантент № 2024612419 от 31.01.2024</p>
+					<a href="/assets/patent-1.pdf" download>Условия использования</a>
+					<hr>
+					<p class="desc">Программа представляет собой автоматизированную систему визуализации загруженного контента и поиска в базе данных дополнительной информации в соответствии с тематикой. В основу работы положена концепция визуализации мультимодального содержимого, в результате которой пользователь получает интерактивный доступ к набору текстовой и графической информации об объекте из определённого набора. Предназначена для предоставления пользователя возможности поиска персонализированной информации по ключевым словам и фразам. Может использоваться в рамках решения образовательных и воспитательных задач в музеях, школах, различных общественных местах</p>
+					<div class="centered-row">
+						<a href="#custom-dev" class="btn">Заказать</a>
+					</div>
+				</div>
+			</div>
 
-	<div class="login-hidden-box"></div>
+			<div class="row">
+				<div class="info-block">
+					<h3>Программа для управления задачами в удаленном формате (клиент-сервер)</h3>
+					<hr>
+					<p class="transp">Свидетельство о регистрации Роспатент № 2024616912 от 27.03.2024</p>
+					<a href="/assets/patent-2.pdf" download>Условия использования</a>
+					<hr>
+					<p class="desc">Программа представляет собой автоматизированную систему управления локальными задачами внутри компании. В удаленном режиме работы система позволяет создавать тематики задач по направлениям деятельности компании,  просматривать задачи, создавать, удалять, изменять название, статус ответственного и другие параметры. Система позволяет работать в формате 24/7 (круглосуточно), в формате клиент-сервер</p>
+					<div class="centered-row">
+						<a href="#custom-dev" class="btn">Заказать</a>
+					</div>
+				</div>
+				<img class="patent" src="/assets/patent-2_page-0001.jpg">
+			</div>
+		</section>
+		
+		<section id="projects">
+			<div class="centered-row">
+				<h2 class="dot">Реализованные проекты</h2>
+				<p class="transp">Примеры проектов, которые мы успешно реализовали</p>
+			</div>
+			<ul>
+				<li class="desc">Алтайский государственный краеведческий музей - разработка информационной системы музейного комплекса «Дорога памяти» (разработка концепции, визуальных материалов «Поезда Победы 1945 г.», информационной системы, позволяющей посетителям музея найти фамилии своих родных и близких, участвовавших  в  Великой Отечественной Войне)</li>
+				<hr>
+				<li class="desc">Доработка Региональная информационная система агропромышленного комплекса Новгородской области (доработка модулей: «Геоинформационный учет земель сельскохозяйственного назначения», «Субсидии», «Животноводство», «Делопроизводство», «Интеграции»)</li>
+				<hr>
+				<li class="desc">Государственный мемориальный историко-литературный музей-заповедник Ф.И.Тютчева «Овстуг» - разработка программного обеспечения для интерактивных панелей (интерактивный куб) и адаптация контента под цифровую среду.</li>
+				<hr>
+				<li class="desc">МКУ «Центр обслуживания в жилищно-коммунальной сфере» г. Екатеринбург - разработка, адаптация и поддержка системы дистанционного обучения и дополнительных модулей системы дистанционного обучения для сотрудников Учреждения. Разработка и формированию обучающего, информационного и новостного контента.</li>
+			</ul>
+		</section>
+		
+		<section class="gray-sec" id="custom-dev">
+				<h2>Индивидуальная разработка</h2>
+				<p class="desc">Если вы заинтересованы в получении индивидуального решения, просто предоставьте нам свои данные, и один из наших специалистов свяжется с вами! <br> Также можете оставить дополнительную информацию о заказе</p>
+				<form action="" method="post" id="contact-form">
+					<div class="row">
+						<div class="form-field">
+							<input type="text" name="fio" placeholder="Выше имя" required>
+						</div>
+						<div class="form-field">
+							<input type="text" name="contacts" placeholder="Почта или телефон" required>
+						</div>
+						<div class="form-field" id="non-req">
+							<input type="text" name="text" placeholder="Сообщение">
+						</div>
+						<input class="btn" type="submit" value="Отправить" id="submit">
+					</div>
+				</form>
+		</section>
+		
+		<section id="contact">
+			<div class="centered-row">
+				<h2>Свяжитесь с нами:</h2>
+			</div>
+			<div class="contact-info">
+				<p class="desc">+7 812 507-61-35</p>
+				<p class="desc">npk@litera-v.ru</p>
+				<p class="desc">г. Санкт-Петербург</p>
+                                <p class="desc">ИНН 7807234722</p>
+			</div>
+		</section>
+	</main>
+	
+	<footer>
+			<p>&copy; 2024 Акционерное общество Научно-производственная компания «Литера-V». Все права защищены.</p>
+			<div>
+				<a href="/assets/политика_оператора_в_отношении_персональных_данных.pdf" target="_blank">политика оператора в отношении персональных данных</a>
+			</div>
+	</footer>
 
-	<script type="module" src="app.js"></script>
-	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script>
+		$(() => { // Отправка формы в send.php
+			$('#contact-form').submit(() => {
+				let data = $("#contact-form").serialize();
+				$.ajax({
+					url: "send.php",
+					type: "POST",
+					data: data,
+					success: (res) => {
+						console.log(res)
+						if (res == 1) {
+							$("#contact-form").find("input:not(#submit)").val("");
+							alert("Заявка отправлена");
+						} else {
+							console.log(res);
+							alert("Ошибка сервера");
+						}
+					},
+					error: () => {
+						alert("Ошибка отправки")
+					}
+				});
+
+				return false;
+			});
+		});
+
+		$(document).ready(function(){ // анимация прокрутки, удаление якоря из адресной строки
+			$("a[href*='#']").on("click", function(e){
+				var anchor = $(this);
+				$('html, body').stop().animate({
+					scrollTop: $(anchor.attr('href')).offset().top
+				}, 777);
+				e.preventDefault();
+				return false;
+			});
+		});
+
+		function burgerMenu(selector) {
+			let menu = $(selector);
+			let button = menu.find('.burger-menu_button', '.burger-menu_lines');
+			let links = menu.find('.burger-menu_link');
+			let overlay = menu.find('.burger-menu_overlay');
+			
+			button.on('click', (e) => {
+				e.preventDefault();
+				toggleMenu();
+			});
+			
+			links.on('click', () => toggleMenu());
+			overlay.on('click', () => toggleMenu());
+			
+			function toggleMenu(){
+				menu.toggleClass('burger-menu_active');
+				
+				if (menu.hasClass('burger-menu_active')) {
+					$('body').css('overlow-y', 'hidden');
+				} else {
+					$('body').css('overlow-y', 'visible');
+				}
+			}
+		}
+
+		burgerMenu('.burger-menu');
+
+	</script>
+
 </body>
-
 </html>
